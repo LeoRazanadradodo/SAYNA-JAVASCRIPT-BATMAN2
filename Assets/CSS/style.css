@@ -1,0 +1,1155 @@
+/* Importation de font */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&family=Space+Grotesk:wght@400;700&display=swap');
+
+
+/* Variable des couleurs */
+:root {
+    --jaune: #ffff00;
+    --jaune-clair: #f8f184;
+    --bleu: #19587D;
+    --bleu-dark: #051319;
+    --rouge: #B11313;
+    --gris-dark: #0D0E09;
+    --gris: #C4C4C4;
+    --gris-border: rgba(188, 187, 189, 0.3);
+    --noir: #000000;
+    --blanc: #ffffff;
+    --blanc-st: rgba(255, 255, 255, 0.4);
+    --degbleu: linear-gradient(170deg, rgba(237, 222, 191, 0.2) 0%, rgba(25, 88, 125, 0.2) 40%);
+    --degbleu-btn: linear-gradient(to right, rgba(237, 222, 191, 0.5), hwb(202 10% 51% / 0.5)) 1;
+    --degbleu-btn-hover: linear-gradient(to right, rgba(237, 222, 191, 1), hwb(202 10% 51% / 1)) 1;
+    --degrouge: linear-gradient(90deg, rgba(237, 222, 191, 0.7) 0%, rgba(137, 0, 8, 0.7) 60%);
+    --hdegrouge: linear-gradient(90deg, rgb(237, 222, 191) 0%, rgba(137, 0, 8, 0.9) 100%);
+    --degorange: linear-gradient(120deg, rgba(0, 0, 0, 0.1) 0%, rgba(189, 107, 40, 0.5) 100%);
+    --btnorange: linear-gradient(90deg, rgba(195, 164, 138, 1) 0%, rgba(189, 107, 40, 0.9) 100%);
+}
+
+
+/* Annulation de toutes les marges */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Animation de tous les éléménts */
+@keyframes apparition {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.fade-slide {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: 1s ease-in-out;
+    transition-delay: .3s;
+}
+
+.fade-slide--active {
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+.fade {
+    opacity: 0;
+    transition: .8s ease-in-out;
+}
+
+.fade--active {
+    opacity: 1
+}
+
+.zoom {
+    transform: scale(0);
+    transition: .8s ease-in-out;
+}
+
+.zoom--active {
+    transform: scale(1);
+}
+
+
+body {
+    background-color: var(--noir);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    color: var(--blanc);
+    height: 100vh;
+}
+
+/* Resposive body */
+@media only screen and (max-width: 992px) {
+    body {
+        font-size: 100%;
+    }
+}
+
+/* Design en general */
+.menu {
+    display: flex;
+}
+
+
+.menu li {
+    list-style-type: none;
+    margin-left: 40px;
+}
+
+a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--blanc);
+}
+
+
+/* Hover yellow img */
+.hover {
+    display: block;
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+.hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+    opacity: 0;
+    transition: .5s;
+}
+
+.hover:hover::before {
+    opacity: 1;
+}
+
+.hover img {
+    transition: .5s;
+    opacity: 1;
+}
+
+.hover img:hover {
+    opacity: 0;
+}
+
+/* Design header & nav */
+.header {
+    background-image: url(../Illustrations/Bathome1.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.game .header {
+    background-image: url(../Illustrations/Batgame_1.png);
+}
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 102px;
+    padding: 50px 90px 132px;
+    border-right: 2px solid var(--gris-border);
+    border-bottom: 2px solid var(--gris-border);
+    border-left: 2px solid var(--gris-border);
+}
+
+.game .navbar {
+    padding: 50px 90px;
+}
+
+.logo-bat::before {
+    background-image: url(../Logos/logohome-hover.png);
+}
+
+.menu a {
+    font-weight: bold;
+    padding: 0px 2px;
+    transition: .5s;
+}
+
+.menu a.active {
+    border-bottom: 1px solid var(--blanc);
+}
+
+.menu a:hover {
+    color: var(--jaune);
+    border-bottom: 1px solid var(--jaune);
+}
+
+/* Design section intro */
+.intro {
+    margin: 0 102px;
+    padding: 200px 90px 350px;
+    border-right: 2px solid var(--gris-border);
+    border-left: 2px solid var(--gris-border);
+    text-align: center;
+    position: relative;
+    max-width: 100%;
+}
+
+.slide-reight {
+    animation: apparition 0.8s ease-in-out;
+}
+
+.nav-social {
+    text-align: center;
+    position: fixed;
+    right: 50px;
+    top: 50vh;
+    z-index: 100;
+}
+
+h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 36px;
+    margin: 20px 0px 40px;
+}
+
+.game h1 {
+    text-transform: uppercase;
+    text-align: left;
+    font-weight: bold;
+    font-size: 43px;
+    margin-left: 50px;
+}
+
+
+/* Social media nav fixed */
+.social-media {
+    margin: 25px 0px;
+}
+
+.arrow-top::before {
+    background: url(../Logos/logo_bat_flèche--hover.png) no-repeat;
+}
+
+.arrow-down::before {
+    background: url(../Logos/logo_bat_flèche_2-hover.png) no-repeat;
+}
+
+.social-media a {
+    width: 24px;
+    height: 24px;
+    margin: 0 auto;
+}
+
+.space-media {
+    margin: 25px auto !important;
+}
+
+.fb::before {
+    background: url(../Logos/icon_facebook--hover.png) no-repeat;
+}
+
+.ig::before {
+    background: url(../Logos/icon_ig--hover.png) no-repeat;
+}
+
+.tw::before {
+    background: url(../Logos/icon_tw--hover.png) no-repeat;
+}
+
+.btn-intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn a,
+button {
+    border: none;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: var(--blanc);
+    background: var(--degrouge);
+    padding: 15px 40px;
+    margin: 0px 20px;
+}
+
+.btn a:hover,
+button:hover {
+    background: var(--hdegrouge);
+}
+
+.down {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 74px;
+    height: 43px;
+    margin: 0 auto;
+}
+
+.scroll-down::before {
+    background: url(../Logos/flèche_down_header-hover.png) no-repeat;
+}
+
+/* Responsive header */
+@media only screen and (max-width: 992px) {
+    .header {
+        background-size: cover;
+    }
+
+    .navbar {
+        margin: 0 5%;
+        padding: 25px 0px 0px;
+        max-width: 100%;
+        border: none;
+    }
+
+    .logo-bat {
+        scale: 70%;
+    }
+
+    .menu a {
+        font-size: 1em;
+    }
+
+    h1 {
+        font-size: 1.6em;
+    }
+
+    .intro {
+        margin: 0 5%;
+        padding: 50px 0px 100px;
+        max-width: 100%;
+        border: none;
+        font-size: .7em;
+    }
+
+    .nav-social {
+        display: none;
+    }
+
+    .btn a,
+    button {
+        font-size: 1em;
+        padding: 10px 25px;
+        margin: 0px 10px;
+    }
+
+    .down {
+        scale: 50%;
+    }
+}
+
+/* Design Batman Card */
+
+.batman-cinema,
+.batman-nemesis,
+.batman-allies,
+.batman-multimedia {
+    margin: 0 102px;
+    padding: 50px 90px 132px;
+    border-right: 2px solid var(--gris-border);
+    border-left: 2px solid var(--gris-border);
+}
+
+.text-container {
+    text-align: justify;
+    width: 90%;
+    margin-bottom: 70px;
+}
+
+.game .text-container {
+    width: 100%;
+    text-align: c;
+}
+
+.text-container h2 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 22px;
+    margin-bottom: 20px;
+    z-index: 5;
+    position: relative;
+}
+
+.game .text-container h2 {
+    font-size: 34px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+
+.game .image {
+    width: 80%;
+    margin: 0 auto 80px;
+}
+
+.game .image img {
+    width: 100%;
+}
+
+.batman-card {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-items {
+    position: relative;
+    z-index: 15;
+}
+
+.card-items .img {
+    transition: transform 0.5s;
+}
+
+.card-items .description {
+    position: absolute;
+    bottom: 7px;
+    left: 0;
+    right: 0;
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    border-top: 3px solid rgba(25, 88, 125, 0.2);
+    padding-top: 10px;
+    opacity: 0;
+    transition: all 0.5s;
+    z-index: 10;
+}
+
+.card-items .description img {
+    width: 80px;
+    border-radius: 50%;
+    position: relative;
+    left: 25px;
+    z-index: 10;
+}
+
+.card-items .description .text {
+    text-align: center;
+    font-family: 'Space Grotesk', sans-serif;
+    padding: 22px 0px;
+    width: 70%;
+    background: var(--degrouge);
+    border-radius: 50px;
+    position: relative;
+    right: 15px;
+    top: 10px;
+    z-index: 0;
+}
+
+.description .text h3 {
+    font-size: 12px;
+}
+
+.description .text p {
+    font-size: 8px;
+    font-weight: 600;
+    color: yellow;
+}
+
+
+/* Design Batman nemesis */
+.batman-nemesis {
+    position: relative;
+    max-width: 100%;
+}
+
+.batman-nemesis .bat-left {
+    position: absolute;
+    top: -40px;
+    left: 100px;
+    z-index: 0;
+}
+
+.bat-left img {
+    max-width: 150px;
+}
+
+/* Design Batman alliés */
+.batman-allies {
+    position: relative;
+    max-width: 100%;
+}
+
+.batman-allies .bat-right {
+    position: absolute;
+    top: -235px;
+    right: -102px;
+    z-index: 10;
+}
+
+/* Design Justice League */
+.justice-container {
+    margin: 0 102px;
+    padding: 0px 90px 50px;
+    border-right: 2px solid var(--gris-border);
+    border-left: 2px solid var(--gris-border);
+}
+
+.justice-container .text-container {
+    margin: 0 auto;
+}
+
+.justice-banner img {
+    width: 100%;
+}
+
+/* Design Batman Multimédia */
+.batman-multimedia {
+    padding-top: 50px;
+}
+
+/* Slideshow */
+.slideshow-container {
+    max-width: 100%;
+    position: relative;
+    margin-bottom: 132px;
+}
+
+
+.row {
+    display: flex;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.owl-prev {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    z-index: 10;
+    margin: 0;
+    transform: translateY(-50%);
+}
+
+.owl-next {
+    position: absolute;
+    top: 40%;
+    right: 0;
+    z-index: 10;
+    margin: 0;
+    transform: translateY(-50%);
+}
+
+
+.mySlides .text {
+    background: var(--degbleu);
+    padding: 20px 15px;
+    border: 1px solid var(--gris-border);
+    border-left: none;
+    border-radius: 10px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.mySlides .text h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.mySlides .text h3 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 10px 0px;
+}
+
+.mySlides .text h4 {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.jaune {
+    color: var(--jaune);
+}
+
+.mySlides .text p {
+    font-size: 12px;
+}
+
+
+/* Fading animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+.player-ba img {
+    width: 100%;
+    transition: .5s;
+}
+
+.player-ba img:hover {
+    box-shadow: 0px 0px 40px var(--blanc-st);
+}
+
+
+/* Design Batman Contact */
+.batman-contact {
+    background: var(--degbleu);
+    border-top: 1px solid var(--gris-border);
+    border-bottom: 1px solid var(--gris-border);
+}
+
+.title-contact h2 {
+    text-align: center;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 22px;
+    margin-top: 50px;
+    margin-bottom: 70px;
+}
+
+
+.batman-contact form {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.batman-contact .placeholder,
+.batman-contact::placeholder {
+    width: 100%;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px;
+    color: var(--blanc);
+    border-color: transparent;
+    border-bottom: 1px solid var(--gris-border);
+    background: none;
+    margin: 20px 0px;
+}
+
+.news-container {
+    font-size: 14px;
+    width: 70%;
+    display: inline-block;
+}
+
+.news-container input {
+    position: relative;
+    bottom: -3px;
+    height: 15px;
+    width: 15px;
+    background-color: var(--blanc);
+    margin-left: 5px;
+}
+
+
+.batman-contact fieldset {
+    border: none;
+    margin-bottom: 50px;
+}
+
+.batman-contact textarea {
+    height: 20px;
+}
+
+.btn-send {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.btn-send button {
+    padding: 15px 70px;
+    cursor: pointer;
+}
+
+.radio-check {
+    display: flex;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+
+.radio-check .choix {
+    position: relative;
+    margin: 0px 25px;
+    padding: 9px 24px 8px;
+    border-width: 2px;
+    border-style: solid;
+    border-image: var(--degbleu-btn);
+    transition: .5s;
+}
+
+.radio-check .choix:hover {
+    border-image: var(--degbleu-btn-hover);
+}
+
+.choix input {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+}
+
+/* Design réplique */
+.batman-replique {
+    margin: 0 102px;
+    padding: 0px 90px 50px;
+    border-right: 2px solid var(--gris-border);
+    border-left: 2px solid var(--gris-border);
+}
+
+.batman-replique h2 {
+    opacity: 0;
+}
+
+.gui-B {
+    display: flex;
+    align-items: end;
+}
+
+.replique-container {
+    width: 90%;
+    margin: 100px auto;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.replique {
+    width: 40%;
+    padding: 150px 0px;
+}
+
+.replique figcaption {
+    margin-top: 15px;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1.8em;
+}
+
+.replique cite {
+    font-style: normal;
+}
+
+/* Responsive main */
+@media only screen and (max-width: 992px) {
+
+    .batman-cinema,
+    .batman-nemesis,
+    .batman-allies,
+    .batman-multimedia,
+    .justice-container,
+    .batman-replique {
+        margin: 0 5%;
+        padding: 50px 0px 0px;
+        max-width: 100%;
+        border: none;
+        font-size: .7em;
+    }
+
+    .text-container {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .text-container h2 {
+        font-size: 1.4em;
+    }
+
+    .batman-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-items {
+        scale: 90%;
+    }
+
+    .card-items:hover {
+        scale: 90%;
+    }
+
+    .card-title h3 {
+        font-size: 1.3em;
+    }
+
+    .bat-left,
+    .bat-right {
+        display: none;
+    }
+
+    .justice-banner {
+        margin-top: 25px;
+    }
+
+    /* Multimedia */
+
+    .media-slider {
+        margin-bottom: 50px;
+    }
+
+    .arrow-left,
+    .arrow-right {
+        scale: 50%;
+    }
+
+    .slider-items {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .synopsis-film {
+        background: var(--degbleu);
+        border: 1px solid var(--gris-border);
+        border-radius: 10px;
+    }
+
+    .player-ba {
+        margin-bottom: 50px;
+    }
+
+    .player-ba img:hover {
+        box-shadow: none;
+    }
+
+    .radio-check .choix {
+        margin: 0px 7px;
+        padding: 9px 10px 8px;
+    }
+
+    .news-container {
+        width: 100%;
+    }
+
+    /* Replique */
+    .gui-B,
+    .gui-A {
+        scale: 50%;
+    }
+
+    .replique-container {
+        width: 90%;
+        margin: 0px auto;
+        padding-bottom: 50px;
+    }
+
+    .batman-replique .text-container {
+        display: none;
+    }
+
+    .replique {
+        width: 80%;
+        padding: 100px 0px;
+    }
+
+    .replique figcaption {
+        margin-top: 15px;
+        font-size: 12px;
+        font-weight: normal;
+        line-height: 1.8em;
+    }
+}
+
+/* Design footer */
+footer {
+    margin: 0 102px;
+    padding: 0px 90px 100px 90px;
+    border-right: 2px solid var(--gris-border);
+    border-left: 2px solid var(--gris-border);
+}
+
+footer .credit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.credit .logo-w::before {
+    background: url(../Logos/icon_WB--hover.png) no-repeat;
+}
+
+footer .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo .feat {
+    margin: 0 7px;
+}
+
+.logo .social {
+    margin-left: 30px;
+}
+
+.sayna::before {
+    background: url(../Logos/logo_sayna_white-hover.png) no-repeat;
+}
+
+.dc::before {
+    background: url(../Logos/icon_DC--hover.png) no-repeat;
+}
+
+/* Responsive footer */
+@media only screen and (max-width: 992px) {
+    footer {
+        margin: 0 5% 50px;
+        padding: 50px 0px 0px;
+        max-width: 100%;
+        border: none;
+        font-size: .7em;
+        text-align: center;
+    }
+
+    footer .credit {
+        flex-direction: column;
+        width: 50%;
+        margin: 0 auto 50px;
+    }
+
+    footer a {
+        background: none !important;
+        scale: 50%;
+    }
+
+    footer img:hover {
+        opacity: 1 !important;
+    }
+}
+
+
+/* Game style css */
+
+.leJeu {
+    position: relative;
+    width: 80%;
+    margin: 50px auto 0px;
+
+}
+
+.question-counter {
+    color: #fff;
+    font-weight: bold;
+    font-family: 'Rajdhani', sans-serif;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 70px;
+}
+
+
+.quiz-container {
+    display: flex;
+}
+
+.quiz-img {
+    width: 40%;
+}
+
+.quiz-img>span {
+    display: block;
+    position: relative;
+    top: -25px;
+    width: 100%;
+    height: 100%;
+}
+
+.quiz-quest {
+    width: 60%;
+    height: auto;
+}
+
+.quest-1 {
+    background: url(../Illustrations/Batgame_3.png) no-repeat;
+    background-size: auto 75%;
+    background-position: top center;
+}
+
+.quest-2 {
+    background: url(../Illustrations/Batgame_4.png) no-repeat;
+    background-size: auto 75%;
+    background-position: top center;}
+
+.quest-3 {
+    background: url(../Illustrations/Batgame_5.png) no-repeat;
+    background-size: auto 75%;
+    background-position: top center;
+}
+
+.quest-4 {
+    background: url(../Illustrations/Batgame_6.png) no-repeat;
+    background-size: 70% auto !important;
+    background-position: right -15px !important;
+}
+
+.quest-5 {
+    background: url(../Illustrations/Batgame_7.png) no-repeat;
+    background-size: 80% auto !important;
+    background-position: center 40% !important;
+}
+
+.quest-6 {
+    background: url(../Illustrations/Batgame_8.png) no-repeat;
+    background-size: 80% auto !important;
+    background-position: left 0px !important;
+}
+
+.quest-7 {
+    background: url(../Illustrations/Batgame_10.png) no-repeat;
+    background-size: 100% auto !important;
+    background-position: -20px 20% !important;
+}
+
+.quest-8 {
+    background: url(../Illustrations/Batgame_11.png) no-repeat;
+    background-size: 100% auto !important;
+    background-position: center 20% !important;
+}
+
+.quest-9 {
+    background: url(../Illustrations/Batgame_12.png) no-repeat;
+    background-size: 75% auto !important;
+    background-position: left -35px !important;
+}
+
+.quest-10 {
+    background: url(../Illustrations/Batgame_17.png) no-repeat;
+    background-size: 95% auto !important;
+    background-position: left 15% !important;
+}
+
+.quest-11 {
+    background: url(../Illustrations/Batgame_18.png) no-repeat;
+    background-size: 70% auto !important;
+    background-position: left -15px !important;
+}
+
+.quest-12 {
+    background: url(../Illustrations/Batgame_21.png) no-repeat;
+    background-size: 70% auto !important;
+    background-position: center 0px !important;
+}
+
+.quiz-container h2,
+#quiz label {
+    font-size: 20px;
+}
+
+.quiz-container h2 {
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.choice {
+    background: var(--gris);
+    padding: 3px;
+    margin-bottom: 10px;
+}
+
+#quiz input[type="radio"] {
+    width: 15px;
+    height: 15px;
+    margin-left: 3px;
+    margin-right: 5px;
+}
+
+#submit {
+    margin-left: 0;
+    margin-top: 100px;
+    padding: 15px 70px;
+    cursor: pointer;
+}
+
+/* Responsive game */
+@media only screen and (max-width: 992px) {
+    #submit {
+        padding: 12px 50px;
+    }
+}
+
+
+/* Style pour la popup */
+.popup {
+    display: none;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--noir);
+    z-index: 1000;
+}
+
+.popup-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 2% 10%;
+    background: var(--degorange);
+    padding: 7% 15% ;
+    border-radius: 15px;
+    border: 1px solid var(--gris-border);
+}
+
+.popup-content h2 {
+    text-transform: uppercase;
+}
+
+.popup-content p {
+    margin-top: 60px;
+    margin-bottom: 50px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.game button {
+    background: var(--btnorange);
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAME | univers cinématographique</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./Assets/CSS/style.css">
+    <link rel="stylesheet" href="./Assets/CSS/owl.carousel.min.css">
+    <!-- javascript -->
+    <script src="//code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="./Assets/JS/owl.carousel.min.js"></script>
+</head>
+
+<body class="game">
+    <!--Partie header du projet-->
+    <header id="top" class="header fade">
+        <nav class="navbar">
+            <a href="index.html" class="logo-bat hover">
+                <img src="./Assets/Logos/logohome.png" alt="logo">
+            </a>
+            <ul class="menu">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a class="active" href="game.html">Game</a>
+                </li>
+            </ul>
+        </nav>
+        <!--Bouton et social media scrolling-->
+        <div class="nav-social">
+            <a class="arrow-top hover" href="#top">
+                <img src="./Assets/Logos/logo_bat_flèche.png" alt="">
+            </a>
+            <div class="social-media">
+                <a class="fb hover" href="#" target="_blank">
+                    <img src="./Assets/Logos/icon_facebook.png" alt="">
+                </a>
+                <a class="ig space-media hover" href="#" target="_blank">
+                    <img src="./Assets/Logos/icon_ig.png" alt="">
+                </a>
+                <a class="tw hover" href="#" target="_blank">
+                    <img src="./Assets/Logos/icon_tw.png" alt="">
+                </a>
+            </div>
+            <a class="arrow-down hover" href="#bottom">
+                <img src="./Assets/Logos/logo_bat_flèche_2.png" alt="">
+            </a>
+        </div>
+        <!--Section intro-->
+        <section class="intro">
+            <div class="slide-reight">
+                <h1>LET’s play a <br>little game...</h1>
+            </div>
+        </section>
+    </header>
+    <main>
+        <!--Section Batman-->
+        <section id="batman" class="batman-cinema">
+            <div class="leJeu">
+                <div id="introjeu" class="introGame">
+                    <div class="text-container fade-slide">
+                        <h2>connaissez vous bien le chevalier noir ?</h2>
+                    </div>
+                    <div class="image zoom">
+                        <img src="./Assets/Illustrations/Batgame_2.png" alt="">
+                    </div>
+                    <div class="btn-send fade-slide">
+                        <button id="start">Démarrer le quiz</button>
+                    </div>
+                </div>
+                <!-- Quiz -->
+                <div class="question-counter">
+                    <p id="questionCounter"></p>
+                </div>
+                <div class="quiz-container">
+                    <div class="quiz-img">
+                    </div>
+                    <div id="quiz" class="quiz-quest" style="display:none;">
+                        <h2 id="question"></h2>
+                        <div class="choice">
+                            <input type="radio" class="answer" id="a" name="answer" />
+                            <label for="a" id="a_text"></label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" class="answer" id="b" name="answer" />
+                            <label for="b" id="b_text"></label>
+                        </div>
+                        <div class="choice">
+                            <input type="radio" class="answer" id="c" name="answer" />
+                            <label for="c" id="c_text"></label>
+                        </div>
+                        <button id="submit">Question suivante</button>
+                    </div>
+                </div>
+                <!-- Popup HTML -->
+                <div class="popup" id="popup">
+                    <div class="popup-content">
+                        <span class="close-btn" onclick="closePopup()">&times;</span>
+                        <h2 id="popup-score"></h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur, provident error animi ipsa rerum recusandae atque eum asperiores labore in rem ea perspiciatis commodi. Impedit facere cum laboriosam praesentium nemo.</p>
+                        <div class="btn-send">
+                            <button onclick="restartQuiz()">Recommencer le quiz</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer id="bottom">
+        <div class="credit fade-slide">
+            <a class="logo-w hover" href="#">
+                <img src="./Assets/Logos/icon_WB.png" alt="">
+            </a>
+            <p>Ce projet respecte l’univers cinématographique des films Batman récents. Version Nolan & Snyder & Reeves
+            </p>
+        </div>
+        <div class="logo fade-slide">
+            <a href="#" class="sayna hover">
+                <img src="./Assets/Logos/logo_sayna_white.png" alt="logo SAYNA">
+            </a>
+            <img src="./Assets/Logos/icon_x.png" alt="" class="feat">
+            <a href="#" class="dc hover">
+                <img src="./Assets/Logos/icon_DC.png" alt="">
+            </a>
+            <a href="#" class="social fb hover">
+                <img src="./Assets/Logos/icon_facebook.png" alt="">
+            </a>
+            <a href="#" class="social ig hover">
+                <img src="./Assets/Logos/icon_ig.png" alt="">
+            </a>
+            <a href="#" class="social tw hover">
+                <img src="./Assets/Logos/icon_tw.png" alt="">
+            </a>
+        </div>
+    </footer>
+    <script src="./Assets/JS/script.js"></script>
+    <script src="./Assets/JS/app-quiz.js"></script>
+</body>
+
+</html>
